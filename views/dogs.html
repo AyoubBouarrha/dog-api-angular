@@ -1,0 +1,42 @@
+<div ng-controller="DogCtrl" class="container">
+    <div>
+
+        <h3>Affichage par</h3>
+        <div class="btn-group btn-group-justified">
+            <a ng-click="switchToList()" href="" ng-class="{'active': layout == 'list'}" class="btn btn-primary">LISTE</a>
+            <a ng-click="switchToGrid()" href="" ng-class="{'active': layout == 'grid'}" class="btn btn-primary">GRID</a>
+        </div>
+
+        <br><br>
+
+        <h4>Race</h4>
+        <div class="btn-group btn-group-justified btn-sm">
+            <a ng-click="switchToRace('APPENZELLER')" href="" ng-class="{'active': currentRace == 'APPENZELLER'}" class="btn btn-default btn-sm">APPENZELLER</a>
+
+            <a ng-click="switchToRace('BRABANCON')" href="" ng-class="{'active': currentRace == 'BRABANCON'}" class="btn btn-default btn-sm">BRABANCON</a>
+
+            <a ng-click="switchToRace('BEAGLE')" href="" ng-class="{'active': currentRace == 'BEAGLE'}" class="btn btn-default btn-sm">BEAGLE</a>
+
+            <a ng-click="switchToRace('CHOW')" href="" ng-class="{'active': currentRace == 'CHOW'}" class="btn btn-default btn-sm">CHOW</a>
+
+            <a ng-click="switchToRace('GROENENDAEL')" href="" ng-class="{'active': currentRace == 'GROENENDAEL'}" class="btn btn-default btn-sm">GROENENDAEL</a>
+
+            <a ng-click="switchToRace('ROTTWEILER')" href="" ng-class="{'active': currentRace == 'ROTTWEILER'}" class="btn btn-default btn-sm">ROTTWEILER</a>
+        </div>
+
+        <br><br>
+
+        <ul ng-show="layout=='grid'" class="grid">
+            <li ng-repeat="url in pics track by $index">
+                <a ng-show="url" target="_blank" href="{{url}}"><img width="100" height="100" class="img-circle" src="{{url}}" alt=""></a>
+            </li>
+        </ul>
+
+        <ul ng-show="layout=='list'" class="list">
+            <li ng-repeat="url in pics track by $index">
+                <a target="_blank" ng-show="url" target="_blank" href="{{url}}"><img class="img-rounded" src="{{url}}" alt=""></a>
+                <p></p>
+            </li>
+        </ul>
+    </div>
+</div>
